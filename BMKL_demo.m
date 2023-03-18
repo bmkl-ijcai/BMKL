@@ -3,9 +3,9 @@ clear
 
 
 load diabetic;
-% load diabetic_kernel.mat
-% load diabetic_trainmat.mat
-% load diabetic_testmat.mat
+load diabetic_kernel.mat
+load diabetic_trainmat.mat
+load diabetic_testmat.mat
 dim=size(diabetic,2);
 dim=dim-1;
 
@@ -45,11 +45,7 @@ hnodes=100;
 	ytest(pos6)=-1;	
 	[xapp,xtest]=normalizemeanstd(xapp,xtest);
 
-for k=1:nbkernel
 
-[kernel_train(:,:,k),H1_sum(:,:,k),H_test_sum(:,:,k)]=elmkernelgenerate(xapp,xtest,hnodes);
-
-end;
 
 ps=sumKbetamkl(kernel_train,Sigma);
 
